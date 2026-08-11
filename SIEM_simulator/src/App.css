@@ -1,0 +1,80 @@
+.container {
+  padding: calc(50 * (100vw / 1124));
+}
+
+
+.card-container {
+  width: 100%;
+  height: 15vw;
+
+  display: flex;
+  justify-content: space-between;
+
+  border-bottom: 2px solid transparent;
+  background-image: linear-gradient(to right,
+      rgba(200, 200, 200, 1) 0%,
+      rgb(110, 76, 76) 50%,
+      rgba(200, 200, 200, 1) 100%);
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+.card {
+  width: 30%;
+  height: 90%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  border: 2px solid rgb(192, 192, 192);
+}
+
+.card-title {
+  font-size: calc(30 * (100vw / 1124));
+  user-select: none;
+}
+
+.card-value {
+  font-size: calc(60 * (100vw / 1124));
+  user-select: none;
+}
+
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: calc(10*(100vw / 1124));
+}
+
+.table caption {
+  margin-bottom: calc(10 * (100vw / 1124));
+  font-weight: bold;
+}
+
+.table th,
+.table td {
+  border:  1px solid gray;
+  padding: calc(5 * (100vw / 1124));
+  text-align: center;
+}
+
+.table thead th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(192, 190, 190, 0.3);
+}
+
+.green {
+  display: inline-block;
+  background-color: rgba(0, 255, 0, 0.1);
+  padding: calc(3 * (100vw / 1124)) calc(12 * (100vw / 1124));
+  border: 1px solid green;
+  border-radius: 5px;
+}
+
