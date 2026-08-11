@@ -13,7 +13,7 @@ const InfoTable = (props) => {
                     backgroundColor: 'rgba(0, 255, 0, 0.1)',
                     padding: '0 calc(12 * (100vw / 1124))',
                     border: '1px solid green',
-                    borderRadius: '5px'
+                    borderRadius: 'calc(5 * (100vw / 1124))'
                 }
             case 'denied':
                 return {
@@ -24,9 +24,9 @@ const InfoTable = (props) => {
                 }
             default:
                 return {
-                    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                    backgroundColor: 'rgba(0, 0, 255, 0.1)',
                     padding: '0 calc(12 * (100vw / 1124))',
-                    border: '1px solid gray',
+                    border: '1px solid blue',
                     borderRadius: '5px'
                 }
         }

@@ -1,5 +1,5 @@
 :root {
-  --text: #6b6375;
+  --text: #fff;
   --text-h: #08060d;
   --bg: #fff;
   --border: #e5e4e7;
@@ -19,7 +19,6 @@
   letter-spacing: 0.18px;
   color-scheme: light dark;
   color: var(--text);
-  background: var(--bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -30,8 +29,16 @@
   }
 }
 
- * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
- }
+}
+
+html {
+  background: #07051f;
+}
+
+body {
+  height: 100vh;
+}
