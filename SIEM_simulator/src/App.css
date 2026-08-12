@@ -16,6 +16,8 @@
 .sidebar__btn {
   width: 100%;
   padding: calc(10 * (100vw / 1124));
+  color: #fff;
+  text-decoration: none;
 }
 
 .sidebar__btn:hover {

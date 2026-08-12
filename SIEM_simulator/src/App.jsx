@@ -4,14 +4,11 @@ import CardContaiber from './components/CardContainer';
 import Card from './components/Card';
 import InfoTable from './components/InfoTable';
 
-import { sideBarBtns } from './data/data';
-
 import { useEffect, useState } from 'react';
 
 function App() {
   const [logs, setLogs] = useState([]);
   const [stats, setStats] = useState({ total: 0, denied: 0, info: 0 });
-  const [activeIndex, setActiveIndex] = useState(0);
 
   const generateRandomIP = () => {
     return Array.from({ length: 4 }, () => Math.floor(Math.random() * 256))
@@ -34,10 +31,6 @@ function App() {
     }
   }
 
-  const handleClickActiveBtn = (index) => {
-    setActiveIndex(index);
-  }
-
   useEffect(() => {
     const interval = setInterval(() => {
       const newLog = generateLog();
@@ -53,21 +46,14 @@ function App() {
   }, [])
 
   return (
-    <div className='container'>
-      <aside className='sidebar'>
-        {sideBarBtns.map((btn, index) => (
-          <span className={`sidebar__btn ${index === activeIndex ? 'active' : ''}`} key={btn} onClick={() => handleClickActiveBtn(index)}>{btn}</span>
-        ))}
-      </aside>
-      <div className='content'>
+    <>
         <CardContaiber>
           <Card title='Всего' value={stats.total} type='allow' />
           <Card title='Заблокировано' value={stats.denied} type='denied' />
           <Card title='Информационные' value={stats.info} type='info' />
         </CardContaiber>
         <InfoTable logs={logs} />
-      </div>
-    </div>
+    </>
   )
 }
 

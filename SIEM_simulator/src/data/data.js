@@ -1,3 +1,3 @@
-const sideBarBtns = ['Дашбоард', 'Все логи']
+const sideBarBtns = [{ title: 'Дашбоард', path: '/' }, { title: 'Все логи', path: 'logs' }]
 
 export { sideBarBtns }
