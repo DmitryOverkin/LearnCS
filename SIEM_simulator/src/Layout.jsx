@@ -1,15 +1,30 @@
 import { Outlet } from 'react-router';
 import { sideBarBtns } from './data/data';
-import { useState } from 'react';
+import { LogsContext } from './context/LogsContext';
 
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
+import useLogs from './hooks/useLogs';
+
+
 
 function Layout() {
     const [activeIndex, setActiveIndex] = useState(0);
+    const { logs, stats, generateLog, addLog, addStat } = useLogs()
 
     const handleClickActiveBtn = (index) => {
         setActiveIndex(index);
     }
+
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const newLog = generateLog();
+            addLog(newLog);
+            addStat(newLog)
+        }, 2000);
+        return () => clearInterval(interval)
+    }, [])
 
     return (
         <div className='container'>
@@ -24,7 +39,9 @@ function Layout() {
                 ))}
             </aside>
             <div className='content'>
-                <Outlet />
+                <LogsContext.Provider value={{ logs, stats }}>
+                    <Outlet />
+                </LogsContext.Provider>
             </div>
         </div>
     );
