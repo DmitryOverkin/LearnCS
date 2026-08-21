@@ -5,11 +5,14 @@ import Card from './components/Card';
 import InfoTable from './components/InfoTable';
 import { LogsContext } from './context/LogsContext';
 
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 
 function App() {
-
   const { logs, stats } = useContext(LogsContext)
+
+  const recenLogs = useMemo(() => {
+    return logs.slice(-6).reverse();
+  }, [logs])
 
   return (
     <>
@@ -18,9 +21,9 @@ function App() {
         <Card title='Заблокировано' value={stats.denied} type='denied' />
         <Card title='Информационные' value={stats.info} type='info' />
       </CardContaiber>
-      <InfoTable logs={logs} />
+      <InfoTable logs={recenLogs} />
     </>
   )
 }
 
-export default App
+export default App;

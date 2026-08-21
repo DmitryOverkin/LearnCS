@@ -1,10 +1,5 @@
-import { useMemo } from "react"
 
 const InfoTable = (props) => {
-
-    const recentLogs = useMemo(() => {
-        return props.logs.slice(-6).reverse();
-    }, [props.logs])
 
     const handleColorStatus = (status) => {
         switch (status) {
@@ -50,7 +45,7 @@ const InfoTable = (props) => {
                         </td>
                     </tr>
                 ) : (
-                    recentLogs.map(log => (
+                    props.logs.map(log => (
                         <tr key={log.id}>
                             <th scope="row">{log.id}</th>
                             <td>{log.ip}</td>

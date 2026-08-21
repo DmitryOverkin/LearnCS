@@ -6,6 +6,7 @@
 
 .sidebar {
   width: 10%;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -108,4 +109,28 @@
   padding: calc(3 * (100vw / 1124)) calc(12 * (100vw / 1124));
   border: 1px solid green;
   border-radius: 5px;
+}
+
+.all-logs__container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: calc(10* (100vw / 1124));
+}
+
+.pagination-tools__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: calc(10* (100vw / 1124));
+}
+
+.pagination-tools__container button {
+  padding: calc(6 * (100vw / 1124)) calc(10 * (100vw / 1124));
+  background-color: rgba(24, 17, 97, 0.3);
+  border:  none;
+  cursor:  pointer;
+  margin-top: auto;
 }
