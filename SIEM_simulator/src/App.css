@@ -97,6 +97,8 @@
 .table thead th {
   background-color: #040650;
   font-weight: bold;
+  cursor: pointer;
+  user-select: none;
 }
 
 .table tbody tr:hover {
@@ -130,7 +132,32 @@
 .pagination-tools__container button {
   padding: calc(6 * (100vw / 1124)) calc(10 * (100vw / 1124));
   background-color: rgba(24, 17, 97, 0.3);
-  border:  none;
-  cursor:  pointer;
+  border: none;
+  cursor: pointer;
   margin-top: auto;
+}
+
+.input-ip {
+  position: absolute;
+  top: calc(63 * (100vw / 1124));
+  left: calc(377 * (100vw / 1124));
+  width: calc(239*(100vw/1124));
+  height: calc(25*(100vw/1124));
+  padding: calc(10*(100vw/1124));
+  background-color: rgba(24, 17, 97, 1);
+  border: 2px solid rgba(24, 17, 97, 0.3);
+  font-size: calc(12 * (100vw / 1124));
+}
+
+.input-ip:focus {
+  outline: none;
+  border: 2px solid #5f607a;
+}
+
+.select-status{
+  position: absolute;
+  top: calc(59 * (100vw / 1124));
+  left: calc(608 * (100vw / 1124));
+  width: calc(167 * (100vw / 1124));
+  height: calc(30 * (100vw / 1124));
 }

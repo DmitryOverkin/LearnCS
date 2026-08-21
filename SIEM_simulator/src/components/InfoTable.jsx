@@ -1,5 +1,9 @@
+import { useState } from "react"
 
 const InfoTable = (props) => {
+
+    const [showInputIp, setShowInputIp] = useState(false)
+    const [showStatusFilter, setShowStatusFilter] = useState(false);
 
     const handleColorStatus = (status) => {
         switch (status) {
@@ -26,15 +30,37 @@ const InfoTable = (props) => {
                 }
         }
     }
+
+    const handleChangeStatus = (e) => {
+        props.handleChangeStatus(e.target.value);
+        setShowStatusFilter(false)
+    }
     return (
         <table className="table">
             <caption>Входящий трафик:</caption>
             <thead>
+                {showInputIp && <input type="text"
+                    className="input-ip"
+                    placeholder="Введите ip..."
+                    onChange={(e) => props.handleChangeIp(e.target.value)} />}
+                {showStatusFilter &&
+                    <select className="select-status" value={props.currentStatus} onChange={(e) => handleChangeStatus(e)}>
+                        <option disabled>Выбирете статус:</option>
+                        <option value='all'>Все логи</option>
+                        <option value='allow'>allow</option>
+                        <option value='denied'>denied</option>
+                        <option value='info'>info</option>
+                    </select>}
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">IP</th>
-                    <th scope="col">Статус</th>
-                    <th scope="col">Время</th>
+                    <th scope="col"
+                        onClick={props.isLogsPage ? () => setShowInputIp(!showInputIp) : null}>
+                        IP
+                    </th>
+                    <th scope="col"
+                        onClick={props.isLogsPage ? () => setShowStatusFilter(!showStatusFilter) : null}
+                    >Статус</th>
+                    <th scope="col" onClick={props.isLogsPage ? props.handleChangeSortedBy : null}>Время</th>
                 </tr>
             </thead>
             <tbody>

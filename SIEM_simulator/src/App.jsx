@@ -11,7 +11,7 @@ function App() {
   const { logs, stats } = useContext(LogsContext)
 
   const recenLogs = useMemo(() => {
-    return logs.slice(-6).reverse();
+    return logs.slice(-7).reverse();
   }, [logs])
 
   return (
